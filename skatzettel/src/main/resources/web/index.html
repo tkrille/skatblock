@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="de.thomaskrille.skatzettel" ng-controller="SkatzettelCtrl">
+<head>
+<meta charset="utf-8">
+<title>Skatzettel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="css/skatzettel.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavigationCtrl">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<button type="button" class="btn btn-navbar" ng-click="navigation.toggleCollapsed()">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="brand" ng-class="{'active':navigation.getSelectedNavigationItem() == 'games'}" href="#/">Skatzettel</a>
+					<div collapse="navigation.isCollapsed()" class="nav-collapse collapse">
+						<ul class="nav">
+							<li ng-class="{'active':navigation.getSelectedNavigationItem() == 'games'}"><a href="#/games"><i class="icon-list icon-white"></i> Spiele</a></li>
+							<li ng-class="{'active':navigation.getSelectedNavigationItem() == 'addGame'}"><a href="#/games/add"><i class="icon-plus icon-white"></i> Neues Spiel</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid" id="container" ng-view></div>
+
+		<div id="push"></div>
+	</div>
+
+	<div id="footer">
+		<div class="container">
+			<p>&copy; Thomas Krille 2013</p>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="lib/underscore-1.5.1/underscore-min.js"></script>
+	<script type="text/javascript" src="lib/jquery-1.10.2/jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript" src="lib/angular-1.0.7/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular-1.0.7/angular-resource.min.js"></script>
+	<script type="text/javascript" src="lib/ng-infinite-scroll-1.0.0/ng-infinite-scroll.min.js"></script>
+	<script type="text/javascript" src="lib/angular-ui-bootstrap-0.4.0/ui-bootstrap-tpls.min.js"></script>
+
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/routes.js"></script>
+
+	<script type="text/javascript" src="js/SkatzettelCtrl.js"></script>
+	<script type="text/javascript" src="js/NavigationCtrl.js"></script>
+	<script type="text/javascript" src="js/GamesCtrl.js"></script>
+	<script type="text/javascript" src="js/GameResource.js"></script>
+
+</body>
+
+</html>

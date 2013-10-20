@@ -1,0 +1,14 @@
+{
+
+  // Java verticle
+  "main":"de.thomaskrille.skatzettel.MainVerticle",
+  
+  //"includes": "io.vertx~mod-mongo-persistor~2.0.0-final",
+  "auto-redeploy": true,
+
+  // If your module is going to be registered in the Vert.x module registry you will also need the following
+  // mandatory fields
+  "description":"Virtueller Skatblock",
+  "licenses": ["The Apache Software License Version 2.0"],
+  "author": "Thomas Krille"
+}
