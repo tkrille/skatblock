@@ -1,5 +1,5 @@
 {
-	"de.thomaskrille.skatzettel.WebServer": {
+	"de.thomaskrille.skatblock.WebServer": {
 	    "port": 8080,
 	    "static_files": false,
 	    "route_matcher": true
@@ -8,6 +8,6 @@
 	    //"address": "vertx.mongopersistor",
 	    //"host": "localhost",
 	    //"port": 27017,
-	    "db_name": "skatzettel"
+	    "db_name": "skatblock"
 	}
 }

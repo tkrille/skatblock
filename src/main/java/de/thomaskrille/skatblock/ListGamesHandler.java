@@ -1,4 +1,4 @@
-package de.thomaskrille.skatzettel;
+package de.thomaskrille.skatblock;
 
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.Vertx;

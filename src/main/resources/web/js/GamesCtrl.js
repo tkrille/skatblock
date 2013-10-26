@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('de.thomaskrille.skatzettel').
+angular.module('de.thomaskrille.skatblock').
 
 controller('GamesCtrl', ['$scope', '$log', 'gameResource', function($scope, $log, gameResource) {
     gameResource.query({}, {}, function(games) {

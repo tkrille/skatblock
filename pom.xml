@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.thomaskrille.skatzettel</groupId>
-	<artifactId>skatzettel</artifactId>
+	<groupId>de.thomaskrille.skatblock</groupId>
+	<artifactId>skatblock</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Skatzettel</name>
+	<name>Skatblock</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

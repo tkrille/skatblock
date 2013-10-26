@@ -1,7 +1,7 @@
 {
 
   // Java verticle
-  "main":"de.thomaskrille.skatzettel.MainVerticle",
+  "main":"de.thomaskrille.skatblock.MainVerticle",
   
   //"includes": "io.vertx~mod-mongo-persistor~2.0.0-final",
   "auto-redeploy": true,

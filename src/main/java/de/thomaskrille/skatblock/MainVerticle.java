@@ -1,4 +1,4 @@
-package de.thomaskrille.skatzettel;
+package de.thomaskrille.skatblock;
 
 import org.vertx.java.core.AsyncResult;
 import org.vertx.java.core.Future;
@@ -28,8 +28,8 @@ public class MainVerticle extends VerticleWithLogging {
 	    }
 	});
 
-	container.deployVerticle("de.thomaskrille.skatzettel.WebServer",
-		config.getObject("de.thomaskrille.skatzettel.WebServer", new JsonObject()), 1,
+	container.deployVerticle("de.thomaskrille.skatblock.WebServer",
+		config.getObject("de.thomaskrille.skatblock.WebServer", new JsonObject()), 1,
 		new Handler<AsyncResult<String>>() {
 
 		    @Override

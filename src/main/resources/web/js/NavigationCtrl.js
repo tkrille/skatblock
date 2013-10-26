@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('de.thomaskrille.skatzettel').
+angular.module('de.thomaskrille.skatblock').
 
 controller('NavigationCtrl', ['$scope', '$log', function($scope, $log) {
     var collapsed = true;

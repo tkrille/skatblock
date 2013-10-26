@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('de.thomaskrille.skatzettel').
+angular.module('de.thomaskrille.skatblock').
 
 config([ '$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
