@@ -3,46 +3,39 @@
 angular.module('de.thomaskrille.skatblock').
 
 config([ '$routeProvider', function($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl : 'views/games.html',
-        meta : {
-            navigation : {
-                selectedNavigationItem : 'games',
-            },
-        },
-        controller: 'GamesCtrl',
+    var listZettel = {
+	templateUrl : 'views/zettel/list.html',
+	meta : {
+	    navigation : {
+		selectedNavigationItem : 'zettel',
+	    },
+	},
+	controller : 'ZettelCtrl',
+    }
+    $routeProvider.when('/', listZettel);
+    $routeProvider.when('/zettel', listZettel);
+
+    $routeProvider.when('/zettel/neu', {
+	templateUrl : 'views/zettel/add.html',
+	meta : {
+	    navigation : {
+		selectedNavigationItem : 'addZettel',
+	    },
+	},
+	controller : 'ZettelAddCtrl',
     });
-    $routeProvider.when('/games', {
-        templateUrl : 'views/games.html',
-        meta : {
-            navigation : {
-                selectedNavigationItem : 'games',
-            },
-        },
-        controller: 'GamesCtrl',
-    });
-    
-    $routeProvider.when('/games/add', {
-        templateUrl : 'views/game_add.html',
-        meta : {
-            navigation : {
-                selectedNavigationItem : 'addGame',
-            },
-        },
-        controller: 'GameAddCtrl',
-    });
-    
-    $routeProvider.when('/games/:reference', {
-        templateUrl : 'views/game_view.html',
-        meta : {
-            navigation : {
-                selectedNavigationItem : 'games',
-            },
-        },
-        controller: 'GameViewCtrl',
+
+    $routeProvider.when('/zettel/:reference', {
+	templateUrl : 'views/zettel/view.html',
+	meta : {
+	    navigation : {
+		selectedNavigationItem : 'zettel',
+	    },
+	},
+	controller : 'ZettelViewCtrl',
     });
 
     $routeProvider.otherwise({
-        redirectTo : '/'
+	redirectTo : '/'
     });
 } ]);

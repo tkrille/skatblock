@@ -9,12 +9,12 @@ import org.vertx.java.core.json.JsonObject;
 import org.vertx.java.core.logging.Logger;
 import org.vertx.java.platform.Container;
 
-public class ListGamesHandler implements Handler<HttpServerRequest> {
+public class ListZettelHandler implements Handler<HttpServerRequest> {
 
     private final Vertx vertx;
     private final Logger log;
 
-    public ListGamesHandler(Vertx vertx, Container container) {
+    public ListZettelHandler(Vertx vertx, Container container) {
 	super();
 	this.vertx = vertx;
 	this.log = container.logger();
@@ -24,7 +24,7 @@ public class ListGamesHandler implements Handler<HttpServerRequest> {
     public void handle(final HttpServerRequest request) {
 	JsonObject query = new JsonObject()
 		.putString("action", "find")
-		.putString("collection", "games")
+		.putString("collection", "zettel")
 		.putObject("matcher", new JsonObject());
 
 

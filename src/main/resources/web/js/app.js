@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('de.thomaskrille.skat', [ 'ngResource', 'infinite-scroll', 'ui.bootstrap' ]);
+angular.module('de.thomaskrille.skatblock', [ 'ngResource', 'infinite-scroll', 'ui.bootstrap' ]);

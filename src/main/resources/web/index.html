@@ -25,11 +25,13 @@
 					<button type="button" class="btn btn-navbar" ng-click="navigation.toggleCollapsed()">
 						<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="brand" ng-class="{'active':navigation.getSelectedNavigationItem() == 'games'}" href="#/">Skatblock</a>
+					<a class="brand" ng-class="{'active':navigation.getSelectedNavigationItem() == 'zettel'}" href="#/">Skatblock</a>
 					<div collapse="navigation.isCollapsed()" class="nav-collapse collapse">
 						<ul class="nav">
-							<li ng-class="{'active':navigation.getSelectedNavigationItem() == 'games'}"><a href="#/games"><i class="icon-list icon-white"></i> Spiele</a></li>
-							<li ng-class="{'active':navigation.getSelectedNavigationItem() == 'addGame'}"><a href="#/games/add"><i class="icon-plus icon-white"></i> Neues Spiel</a></li>
+							<li ng-class="{'active':navigation.getSelectedNavigationItem() == 'zettel'}"><a href="#/zettel"><i
+									class="icon-list icon-white"></i> Zettel</a></li>
+							<li ng-class="{'active':navigation.getSelectedNavigationItem() == 'addZettel'}"><a href="#/zettel/neu"><i
+									class="icon-plus icon-white"></i> Neuer Zettel</a></li>
 						</ul>
 					</div>
 				</div>
@@ -60,8 +62,8 @@
 
 	<script type="text/javascript" src="js/SkatblockCtrl.js"></script>
 	<script type="text/javascript" src="js/NavigationCtrl.js"></script>
-	<script type="text/javascript" src="js/GamesCtrl.js"></script>
-	<script type="text/javascript" src="js/GameResource.js"></script>
+	<script type="text/javascript" src="js/ZettelCtrl.js"></script>
+	<script type="text/javascript" src="js/ZettelResource.js"></script>
 
 </body>
 

@@ -18,8 +18,8 @@ public class WebServer extends WebServerBase {
     @Override
     protected RouteMatcher routeMatcher() {
 	return new RouteMatcher()
-		.get("/api/games", new ListGamesHandler(vertx, container))
-		.get("/api/games/:reference", new ShowGameHandler())
+		.get("/api/zettel", new ListZettelHandler(vertx, container))
+		.get("/api/zettel/:reference", new ShowZettelHandler())
 		.noMatch(staticHandler());
     }
 
