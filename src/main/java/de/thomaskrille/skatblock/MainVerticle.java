@@ -11,35 +11,36 @@ public class MainVerticle extends VerticleWithLogging {
 
     @Override
     public void start(final Future<Void> startedResult) {
-	start();
-	
-	config = container.config();
+        start();
 
-	log.debug(config);
+        config = container.config();
 
-	container.deployModule("io.vertx~mod-mongo-persistor~2.0.0-final", config.getObject("mongo-persistor", new JsonObject()), 1, new Handler<AsyncResult<String>>() {
-	    @Override
-	    public void handle(AsyncResult<String> deploymentResult) {
-		if (deploymentResult.succeeded()) {
-		    startedResult.setResult(null);
-		} else {
-		    startedResult.setFailure(deploymentResult.cause());
-		}
-	    }
-	});
+        log.debug(config);
 
-	container.deployVerticle("de.thomaskrille.skatblock.WebServer",
-		config.getObject("de.thomaskrille.skatblock.WebServer", new JsonObject()), 1,
-		new Handler<AsyncResult<String>>() {
+        container.deployModule("io.vertx~mod-mongo-persistor~2.0.0-final",
+                config.getObject("mongo-persistor", new JsonObject()), 1, new Handler<AsyncResult<String>>() {
+                    @Override
+                    public void handle(AsyncResult<String> deploymentResult) {
+                        if (deploymentResult.succeeded()) {
+                            startedResult.setResult(null);
+                        } else {
+                            startedResult.setFailure(deploymentResult.cause());
+                        }
+                    }
+                });
 
-		    @Override
-		    public void handle(AsyncResult<String> deploymentResult) {
-			if (deploymentResult.succeeded()) {
-			    startedResult.setResult(null);
-			} else {
-			    startedResult.setFailure(deploymentResult.cause());
-			}
-		    }
-		});
+        container.deployVerticle("de.thomaskrille.skatblock.WebServer",
+                config.getObject("de.thomaskrille.skatblock.WebServer", new JsonObject()), 1,
+                new Handler<AsyncResult<String>>() {
+
+                    @Override
+                    public void handle(AsyncResult<String> deploymentResult) {
+                        if (deploymentResult.succeeded()) {
+                            startedResult.setResult(null);
+                        } else {
+                            startedResult.setFailure(deploymentResult.cause());
+                        }
+                    }
+                });
     }
 }

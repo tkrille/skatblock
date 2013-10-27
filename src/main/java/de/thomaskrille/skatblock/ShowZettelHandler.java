@@ -7,7 +7,7 @@ public class ShowZettelHandler implements Handler<HttpServerRequest> {
 
     @Override
     public void handle(HttpServerRequest request) {
-	request.response().end();
+        request.response().end();
     }
 
 }

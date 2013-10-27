@@ -15,35 +15,34 @@ public class ListZettelHandler implements Handler<HttpServerRequest> {
     private final Logger log;
 
     public ListZettelHandler(Vertx vertx, Container container) {
-	super();
-	this.vertx = vertx;
-	this.log = container.logger();
+        super();
+        this.vertx = vertx;
+        this.log = container.logger();
     }
 
     @Override
     public void handle(final HttpServerRequest request) {
-	JsonObject query = new JsonObject()
-		.putString("action", "find")
-		.putString("collection", "zettel")
-		.putObject("matcher", new JsonObject());
+        JsonObject query = new JsonObject()
+                .putString("action", "find")
+                .putString("collection", "zettel")
+                .putObject("matcher", new JsonObject());
 
+        vertx.eventBus().send("vertx.mongopersistor", query, new Handler<Message<JsonObject>>() {
+            @Override
+            public void handle(Message<JsonObject> msg) {
+                JsonObject reply = msg.body();
 
-	vertx.eventBus().send("vertx.mongopersistor", query, new Handler<Message<JsonObject>>() {
-	    @Override
-	    public void handle(Message<JsonObject> msg) {
-		JsonObject reply = msg.body();
+                log.debug(reply);
 
-		log.debug(reply);
-
-		if (reply.getString("status").equalsIgnoreCase("ok")) {
-		    request.response().putHeader("Content-Type", "application/json");
-		    request.response().end(reply.getArray("results", new JsonArray()).encode());
-		} else {
-		    request.response().putHeader("Content-Type", "text/plain");
-		    request.response().end(reply.getString("message", "an unknown error happened while using mongodb"));
-		}
-	    }
-	});
+                if (reply.getString("status").equalsIgnoreCase("ok")) {
+                    request.response().putHeader("Content-Type", "application/json");
+                    request.response().end(reply.getArray("results", new JsonArray()).encode());
+                } else {
+                    request.response().putHeader("Content-Type", "text/plain");
+                    request.response().end(reply.getString("message", "an unknown error happened while using mongodb"));
+                }
+            }
+        });
 
     }
 

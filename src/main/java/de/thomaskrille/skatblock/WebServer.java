@@ -11,16 +11,16 @@ public class WebServer extends WebServerBase {
     @Override
     public void start() {
         super.start();
-        
+
         log = container.logger();
     }
-    
+
     @Override
     protected RouteMatcher routeMatcher() {
-	return new RouteMatcher()
-		.get("/api/zettel", new ListZettelHandler(vertx, container))
-		.get("/api/zettel/:reference", new ShowZettelHandler())
-		.noMatch(staticHandler());
+        return new RouteMatcher()
+                .get("/api/zettel", new ListZettelHandler(vertx, container))
+                .get("/api/zettel/:reference", new ShowZettelHandler())
+                .noMatch(staticHandler());
     }
 
 }
