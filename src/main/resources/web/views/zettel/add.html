@@ -1,1 +1,12 @@
-Add Zettel
+<form ng-submit="addZettel()" class="form-search">
+	<fieldset>
+		<legend>Spieler</legend>
+		<ul class="inline">
+			<li ng-repeat="player in zettel.players" class="lead"><a href="#" ng-click="removePlayer(player)">{{player}} <i class="icon-remove"></i></a></li>
+		</ul>
+		<input type="text" ng-model="playerToAdd" size="30" placeholder="Neuer Spieler">
+		<input class="btn btn-info" type="button" value="+" ng-click="addPlayer()">
+			
+		<button type="submit" class="btn">Submit</button>
+	</fieldset>
+</form>

@@ -1,5 +1,10 @@
 <div class="zettel">
-	<div ng-repeat="zettel_ in zettel" class="row-fluid">
-        {{zettel_.players}}
-    </div>
+
+	<ul class="nav nav-tabs nav-stacked">
+		<li ng-repeat="zettel_ in zettel"><a href="#" ng-href="#/zettel/{{zettel_._id.$oid}}">Zettel vom
+				{{zettel_.created.$date}}<br> Zuletzt gespielt am {{zettel_.created.$date}}<br> Spieler:
+				{{zettel_.players}}
+		</a></li>
+	</ul>
+
 </div>

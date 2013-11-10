@@ -19,7 +19,7 @@ public class WebServer extends WebServerBase {
     protected RouteMatcher routeMatcher() {
         return new RouteMatcher()
                 .get("/api/zettel", new ListZettelHandler(vertx, container))
-                .get("/api/zettel/:reference", new ShowZettelHandler())
+                .get("/api/zettel/:id", new ViewZettelHandler(vertx, container))
                 .noMatch(staticHandler());
     }
 

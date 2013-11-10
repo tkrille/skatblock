@@ -10,7 +10,7 @@ config([ '$routeProvider', function($routeProvider) {
 		selectedNavigationItem : 'zettel',
 	    },
 	},
-	controller : 'ZettelCtrl',
+	controller : 'ZettelListCtrl',
     }
     $routeProvider.when('/', listZettel);
     $routeProvider.when('/zettel', listZettel);
@@ -25,7 +25,7 @@ config([ '$routeProvider', function($routeProvider) {
 	controller : 'ZettelAddCtrl',
     });
 
-    $routeProvider.when('/zettel/:reference', {
+    $routeProvider.when('/zettel/:id', {
 	templateUrl : 'views/zettel/view.html',
 	meta : {
 	    navigation : {
